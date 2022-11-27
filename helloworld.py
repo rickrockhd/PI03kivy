@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import kivy
 from kivy.app import App
+from kivy.lang import Builder
 from kivy.uix.label import Label
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
@@ -10,7 +11,7 @@ from kivy.uix.button import Button
 #import os
 #os.environ['KIVY_GL_BACKEND'] = 'angle_sdl2'
 
-
+GUI = Builder.load_file("telainicial.kv")
 kivy.require('1.9.1')
 var = 0
 
@@ -35,7 +36,7 @@ class MeuApp(App):
         btn2.bind(on_press=test)
         layout.add_widget(btn)
         layout.add_widget(btn2)
-        return layout
+        return GUI
 
 
 if __name__ == '__main__':
