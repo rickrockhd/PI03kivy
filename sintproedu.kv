@@ -1,0 +1,111 @@
+Gerenciadora:
+    TelaLogin:
+    TelaCadastro:
+
+
+<TelaLogin>:
+
+    name:"telalogin"
+
+    FloatLayout:
+
+        MDTopAppBar:
+            title: 'SintProEdu'
+
+            left_action_items: [['menu', lambda x: x]]
+            right_action_items: [['window-close', lambda x: app.fechar()]]
+            pos_hint: {'center_x': .5, 'center_y': .95}
+
+        Image:
+            source:'logo_transparente.png'
+            size_hint: 0.6, 0.6
+            pos_hint: {'center_x': 0.5, 'center_y': 0.75}
+            allow_stretch: True
+
+        MDTextField:
+            size_hint_x: .8
+            hint_text: 'Email:'
+            id: Email
+            icon_right: "account"
+            pos_hint:  {'center_x': .5, 'center_y': .55}
+            mode: "round"
+
+        MDTextField:
+            size_hint_x: .8
+            hint_text: 'Senha:'
+            id: Senha
+            icon_right: "lock"
+            pos_hint: {'center_x': .5, 'center_y': .45}
+            mode: "round"
+
+        MDRaisedButton:
+            size_hint_x: .8
+            pos_hint:  {'center_x': .5, 'center_y': .33}
+            text: 'Login'
+            font_size: 15
+
+        MDRaisedButton:
+            size_hint_x: .8
+            pos_hint:  {'center_x': .5, 'center_y': .24}
+            text: 'Cadastrar'
+            font_size: 15
+            on_release:
+                app.root.current = 'telacadastro'
+
+        MDLabel:
+            pos_hint: { 'center_y': .15}
+            halign: 'center'
+            text: 'Esqueceu sua senha?'
+
+        MDTextButton:
+
+            pos_hint:  { 'center_x': .5, 'center_y': .1}
+            text: 'Clique Aqui!'
+            font_size: 12
+            on_release: root.abrir_card()
+
+<SenhaCard>:
+
+    orientation:'vertical'
+    id: card
+    size_hint: .9,.4
+    pos_hint: {'center_x': 0.5, 'center_y': 0.4}
+    FloatLayout:
+        MDLabel:
+            pos_hint: {'center_x': .5, 'center_y': .7}
+            size_hint_x: .8
+            text: 'Enviar link para redefinição de senha:'
+            font_size: 15
+        MDTextField:
+            pos_hint: {'center_x': .5, 'center_y': .45}
+            size_hint_x: .8
+            text: 'Email cadastrado'
+            icon_right: 'email'
+        MDRaisedButton:
+            text: 'Enviar'
+            pos_hint: {'center_x': .5, 'center_y': .2}
+        MDIconButton:
+            icon: "window-close"
+            pos_hint: {"center_x": .93, "center_y": .9}
+            on_release: root.fechar()
+
+
+
+<TelaCadastro>:
+
+    name:"telacadastro"
+
+    FloatLayout:
+        MDTopAppBar:
+            title: 'Cadastro'
+            left_action_items: [['menu', lambda x: x]]
+            right_action_items: [['window-close', lambda x: app.fechar()]]
+            pos_hint: {'center_x': .5, 'center_y': 0.95}
+
+        MDRaisedButton:
+            text: 'Voltar'
+            pos_hint: {'center_x': .2, 'center_y': .05}
+            on_release:
+                app.root.current = 'telalogin'
+
+
