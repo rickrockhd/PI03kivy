@@ -1,7 +1,8 @@
 Gerenciadora:
     TelaLogin:
     TelaCadastro:
-
+    TelaCadastroAluno:
+    TelaCadastroEmpresa:
 
 <TelaLogin>:
 
@@ -76,19 +77,21 @@ Gerenciadora:
             size_hint_x: .8
             text: 'Enviar link para redefinição de senha:'
             font_size: 15
+
         MDTextField:
             pos_hint: {'center_x': .5, 'center_y': .45}
             size_hint_x: .8
             text: 'Email cadastrado'
             icon_right: 'email'
+
         MDRaisedButton:
             text: 'Enviar'
             pos_hint: {'center_x': .5, 'center_y': .2}
+
         MDIconButton:
             icon: "window-close"
             pos_hint: {"center_x": .93, "center_y": .9}
             on_release: root.fechar()
-
 
 
 <TelaCadastro>:
@@ -102,10 +105,194 @@ Gerenciadora:
             right_action_items: [['window-close', lambda x: app.fechar()]]
             pos_hint: {'center_x': .5, 'center_y': 0.95}
 
-        MDRaisedButton:
-            text: 'Voltar'
-            pos_hint: {'center_x': .2, 'center_y': .05}
-            on_release:
-                app.root.current = 'telalogin'
+        MDIconButton:
+            icon: "reply"
+            pos_hint: {'center_x': .1, 'center_y': .05}
+            on_release: app.root.current = 'telalogin'
 
+        MDLabel:
+            pos_hint: { 'center_y': .86}
+            halign: 'center'
+            text: 'Conta para Aluno'
+            font_size: 17
+
+
+
+        Image:
+            source:'menino.png'
+            size_hint: 0.7, 0.7
+            pos_hint: {'center_x': 0.5, 'center_y': 0.69}
+            allow_stretch: True
+
+
+        MDRaisedButton:
+            text: 'Cadastrar'
+            pos_hint: {'center_x': .5, 'center_y': .52}
+            on_release: app.root.current = 'telacadastroaluno'
+
+        MDLabel:
+            pos_hint: { 'center_y': .45}
+            halign: 'center'
+            text: 'Conta para Empresa'
+            font_size: 17
+
+        Image:
+            source:'pngwing3.png'
+            size_hint: 0.5, 0.5
+            pos_hint: {'center_x': 0.5, 'center_y': 0.28}
+            allow_stretch: True
+
+        MDRaisedButton:
+            text: 'Cadastrar'
+            pos_hint: {'center_x': .5, 'center_y': .100}
+            on_release: app.root.current = 'telacadastroempresa'
+
+
+<TelaCadastroAluno>:
+
+    name:"telacadastroaluno"
+
+    FloatLayout:
+        MDTopAppBar:
+            title: 'Cadastro para Aluno'
+            left_action_items: [['menu', lambda x: x]]
+            right_action_items: [['window-close', lambda x: app.fechar()]]
+            pos_hint: {'center_x': 0.5, 'center_y': 0.95}
+
+
+        MDTextField:
+            pos_hint: {'center_x': 0.5, 'center_y': 0.8}
+            size_hint_X:0.4
+            mode: "rectangle"
+            hint_text: "Nome:"
+            max_text_length:70
+
+        MDTextField:
+            pos_hint: {'center_x': 0.5, 'center_y': 0.7}
+            size_hint_X:0.4
+            mode: "rectangle"
+            hint_text: "CPF:"
+            max_text_length:70
+
+        MDTextField:
+            pos_hint: {'center_x': 0.5, 'center_y': 0.6}
+            size_hint_X:0.4
+            mode: "rectangle"
+            hint_text: "CEP:"
+            max_text_length:70
+
+        MDTextField:
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            size_hint_X:0.4
+            mode: "rectangle"
+            hint_text: "Endereço:"
+            max_text_length:100
+
+        MDTextField:
+            pos_hint: {'center_x': 0.5, 'center_y': 0.4}
+            size_hint_X:0.4
+            mode: "rectangle"
+            hint_text: "N°"
+            max_text_length:100
+
+
+        MDTextField:
+            pos_hint: {'center_x': 0.5, 'center_y': 0.3}
+            size_hint_X:0.4
+            mode: "rectangle"
+            hint_text: "Complemento:"
+            max_text_length:100
+
+        MDTextField:
+            pos_hint: {'center_x': 0.5, 'center_y': 0.2}
+            size_hint_X:0.4
+            mode: "rectangle"
+            hint_text: "Bairro:"
+            max_text_length:100
+
+        MDTextField:
+            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
+            size_hint_X:0.4
+            mode: "rectangle"
+            hint_text: "Cidade:"
+            max_text_length:100
+
+
+        MDIconButton:
+            icon: "reply"
+            pos_hint: {'center_x': .1, 'center_y': .05}
+            on_release: app.root.current = 'telacadastro'
+
+<TelaCadastroEmpresa>:
+
+    name:"telacadastroempresa"
+
+    FloatLayout:
+        MDTopAppBar:
+            title: 'Cadastro para Empresa'
+            left_action_items: [['menu', lambda x: x]]
+            right_action_items: [['window-close', lambda x: app.fechar()]]
+            pos_hint: {'center_x': .5, 'center_y': 0.95}
+
+
+        MDIconButton:
+            icon: "reply"
+            pos_hint: {'center_x': .1, 'center_y': .05}
+            on_release: app.root.current = 'telacadastro'
+
+        MDTextField:
+            pos_hint: {'center_x': 0.5, 'center_y': 0.8}
+            size_hint_X:0.4
+            mode: "rectangle"
+            hint_text: "Nome da Empresa:"
+            max_text_length:70
+
+        MDTextField:
+            pos_hint: {'center_x': 0.5, 'center_y': 0.7}
+            size_hint_X:0.4
+            mode: "rectangle"
+            hint_text: "CNPJ:"
+            max_text_length:70
+
+        MDTextField:
+            pos_hint: {'center_x': 0.5, 'center_y': 0.6}
+            size_hint_X:0.4
+            mode: "rectangle"
+            hint_text: "CEP:"
+            max_text_length:10
+
+        MDTextField:
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            size_hint_X:0.4
+            mode: "rectangle"
+            hint_text: "Endereço:"
+            max_text_length:100
+
+        MDTextField:
+            pos_hint: {'center_x': 0.5, 'center_y': 0.4}
+            size_hint_X:0.4
+            mode: "rectangle"
+            hint_text: "N°"
+            max_text_length:100
+
+        MDTextField:
+            pos_hint: {'center_x': 0.5, 'center_y': 0.3}
+            size_hint_X:0.4
+            mode: "rectangle"
+            hint_text: "Complemento:"
+            max_text_length:100
+
+        MDTextField:
+            pos_hint: {'center_x': 0.5, 'center_y': 0.2}
+            size_hint_X:0.4
+            mode: "rectangle"
+            hint_text: "Bairro:"
+            max_text_length:100
+
+        MDTextField:
+            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
+            size_hint_X:0.4
+            mode: "rectangle"
+            hint_text: "Cidade:"
+            max_text_length:100
 
