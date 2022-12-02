@@ -3,6 +3,7 @@ Gerenciadora:
     TelaCadastro:
     TelaCadastroAluno:
     TelaCadastroEmpresa:
+    TelaConfirmacaoCadastro:
 
 <TelaLogin>:
 
@@ -258,6 +259,7 @@ Gerenciadora:
             pos_hint:  {'center_x': .5, 'center_y': .05}
             text: 'Registrar'
             font_size: 15
+            on_release: app.root.current = 'telaconfirmacaocadastro'
 
         MDIconButton:
             icon: "reply"
@@ -282,66 +284,130 @@ Gerenciadora:
             on_release: app.root.current = 'telacadastro'
 
         MDTextField:
-            pos_hint: {'center_x': 0.5, 'center_y': 0.8}
-            size_hint_x:0.4
+            pos_hint: {'center_x': 0.50, 'center_y': 0.85}
+            size_hint_x:0.91
             mode: "rectangle"
             hint_text: "Nome da Empresa:"
             max_text_length:70
 
         MDTextField:
-            pos_hint: {'center_x': 0.5, 'center_y': 0.7}
-            size_hint_x:0.4
+            pos_hint: {'center_x': 0.28, 'center_y': 0.755}
+            size_hint_x:0.46
+            mode: "rectangle"
+            hint_text: "Representante:"
+            max_text_length:70
+
+        MDTextField:
+            pos_hint: {'center_x': 0.75, 'center_y': 0.75}
+            size_hint_x:0.41
+            mode: "rectangle"
+            hint_text: "Área de atuação:"
+            max_text_length:70
+
+        MDTextField:
+            pos_hint: {'center_x': 0.28, 'center_y': 0.65}
+            size_hint_x:0.46
             mode: "rectangle"
             hint_text: "CNPJ:"
             max_text_length:70
 
         MDTextField:
-            pos_hint: {'center_x': 0.5, 'center_y': 0.6}
-            size_hint_x:0.4
+            pos_hint: {'center_x': 0.75, 'center_y': 0.65}
+            size_hint_x:0.41
             mode: "rectangle"
             hint_text: "CEP:"
-            max_text_length:10
+            max_text_length:70
 
         MDTextField:
-            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
-            size_hint_x:0.4
+            pos_hint: {'center_x': 0.50, 'center_y': 0.55}
+            size_hint_x:0.91
             mode: "rectangle"
             hint_text: "Endereço:"
             max_text_length:100
 
         MDTextField:
-            pos_hint: {'center_x': 0.5, 'center_y': 0.4}
-            size_hint_x:0.4
+            pos_hint: {'center_x': 0.19, 'center_y': 0.45}
+            size_hint_x:0.29
             mode: "rectangle"
             hint_text: "N°"
             max_text_length:100
 
+
         MDTextField:
-            pos_hint: {'center_x': 0.5, 'center_y': 0.3}
-            size_hint_x:0.4
+            pos_hint: {'center_x': 0.66, 'center_y': 0.45}
+            size_hint_x:0.59
             mode: "rectangle"
             hint_text: "Complemento:"
             max_text_length:100
 
-
         MDTextField:
-            pos_hint: {'center_x': 0.5, 'center_y': 0.2}
-            size_hint_x:0.9
+            pos_hint: {'center_x': 0.50, 'center_y': 0.35}
+            size_hint_x:0.91
             mode: "rectangle"
             hint_text: "Bairro:"
             max_text_length:70
 
         MDTextField:
-            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
-            size_hint_x:0.4
+            pos_hint: {'center_x': 0.28, 'center_y': 0.25}
+            size_hint_x:0.46
             mode: "rectangle"
             hint_text: "Cidade:"
             max_text_length:100
 
         MDTextField:
-            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
-            size_hint_x:0.4
+            pos_hint: {'center_x': 0.75, 'center_y': 0.25}
+            size_hint_x:0.41
             mode: "rectangle"
             hint_text: "Estado:"
             max_text_length:100
 
+
+        MDTextField:
+            pos_hint: {'center_x': 0.28, 'center_y': 0.15}
+            size_hint_x:0.46
+            mode: "rectangle"
+            hint_text: "E-mail:"
+            max_text_length:70
+
+        MDTextField:
+            pos_hint: {'center_x': 0.75, 'center_y': 0.15}
+            size_hint_x:0.41
+            mode: "rectangle"
+            hint_text: "Senha:"
+            max_text_length:70
+
+
+        MDRaisedButton:
+            size_hint_x: .5
+            pos_hint:  {'center_x': .5, 'center_y': .05}
+            text: 'Registrar'
+            font_size: 15
+            on_release: app.root.current = 'telaconfirmacaocadastro'
+
+
+<TelaConfirmacaoCadastro>:
+
+    name:"telaconfirmacaocadastro"
+
+    FloatLayout:
+        MDTopAppBar:
+            left_action_items: [['menu', lambda x: x]]
+            right_action_items: [['window-close', lambda x: app.fechar()]]
+            pos_hint: {'center_x': .5, 'center_y': 0.95}
+
+        MDLabel:
+            pos_hint: { 'center_y': .60}
+            halign: 'center'
+            text: "Cadastro realizado com sucesso!"
+            size_font:25
+
+        MDLabel:
+            pos_hint: { 'center_x': .73,'center_y': .50}
+            text: "Para efetuar login"
+
+        MDTextButton:
+
+            pos_hint:  { 'center_x': .67, 'center_y': .50}
+            text: 'clique Aqui'
+            font_size: 12
+            on_release: app.root.current = 'telalogin'
