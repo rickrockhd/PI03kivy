@@ -11,7 +11,6 @@ from kivymd.uix.card import MDCard
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 
-
 class Gerenciadora(ScreenManager):
     pass
 
