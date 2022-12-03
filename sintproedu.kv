@@ -4,6 +4,8 @@ Gerenciadora:
     TelaCadastroAluno:
     TelaCadastroEmpresa:
     TelaConfirmacaoCadastro:
+    TelaBemVindo:
+    TelaProjetos:
 
 <TelaLogin>:
 
@@ -45,6 +47,7 @@ Gerenciadora:
             pos_hint:  {'center_x': .5, 'center_y': .33}
             text: 'Login'
             font_size: 15
+            on_release: app.root.current = 'telabemvindo'
 
         MDRaisedButton:
             size_hint_x: .8
@@ -395,11 +398,13 @@ Gerenciadora:
             right_action_items: [['window-close', lambda x: app.fechar()]]
             pos_hint: {'center_x': .5, 'center_y': 0.95}
 
+
         MDLabel:
             pos_hint: { 'center_y': .60}
             halign: 'center'
             text: "Cadastro realizado com sucesso!"
-            size_font:25
+            font_size: 18
+
 
         MDLabel:
             pos_hint: { 'center_x': .73,'center_y': .50}
@@ -411,3 +416,103 @@ Gerenciadora:
             text: 'clique Aqui'
             font_size: 12
             on_release: app.root.current = 'telalogin'
+
+
+<TelaBemVindo>:
+
+    name:"telabemvindo"
+
+    FloatLayout:
+        MDTopAppBar:
+            left_action_items: [['menu', lambda x: x]]
+            right_action_items: [['window-close', lambda x: app.fechar()]]
+            pos_hint: {'center_x': .5, 'center_y': 0.95}
+
+        Image:
+            source:'7.png'
+            size_hint: .99, .99
+            pos_hint: {'center_x': 0.5, 'center_y': 0.45}
+            allow_stretch: True
+
+        Image:
+            source:'logo_transparente.png'
+            size_hint: 0.8, 0.8
+            pos_hint: {'center_x': 0.5, 'center_y': 0.75}
+            allow_stretch: True
+
+        MDTextButton:
+            pos_hint:  { 'center_x': .50, 'center_y': .10}
+            text: 'Comece o seu projeto agora, clicando aqui!'
+            font_size: 15
+            on_release: app.root.current = 'telaprojetos'
+
+        MDIconButton:
+            icon: "reply"
+            pos_hint: {'center_x': .1, 'center_y': .05}
+            on_release: app.root.current = 'telalogin'
+
+
+
+
+<TelaProjetos>:
+
+    name:"telaprojetos"
+
+    FloatLayout:
+        MDTopAppBar:
+            title: 'Cadastrar Projeto'
+            left_action_items: [['menu', lambda x: x]]
+            right_action_items: [['window-close', lambda x: app.fechar()]]
+            pos_hint: {'center_x': .5, 'center_y': 0.95}
+
+
+        MDLabel:
+            pos_hint: {'center_x': .35, 'center_y': .85}
+            size_hint_x: .60
+            text: 'Título do Projeto:'
+            font_size: 15
+
+        MDTextField:
+            pos_hint: {'center_x': 0.50, 'center_y': 0.78}
+            size_hint_x:0.90
+            mode: "rectangle"
+            hint_text: "Digite o título:"
+            font_size:10
+            max_text_length:70
+
+        MDLabel:
+            pos_hint: {'center_x': .35, 'center_y': .70}
+            size_hint_x: .60
+            text: 'Área de atuação:'
+            font_size: 15
+
+        MDTextField:
+            pos_hint: {'center_x': 0.50, 'center_y': 0.63}
+            size_hint_x:0.90
+            mode: "rectangle"
+            hint_text: "Digite aqui:"
+            max_text_length:70
+
+        MDLabel:
+            pos_hint: {'center_x': .35, 'center_y': .54}
+            size_hint_x: .60
+            text: 'Descrição do Projeto:'
+            font_size: 15
+
+        MDTextField:
+            pos_hint: {'center_x': 0.50, 'center_y': 0.32}
+            size_hint_x:0.90
+            size_hint_y:0.4
+            mode: "rectangle"
+            hint_text: "Descreva detalhes sobre o seu projeto:"
+            max_text_length: 1000
+
+        MDRaisedButton:
+            size_hint_x: .3
+            pos_hint:  {'center_x': .5, 'center_y': .06}
+            text: 'OK'
+
+        MDIconButton:
+            icon: "reply"
+            pos_hint: {'center_x': .1, 'center_y': .05}
+            on_release: app.root.current = 'telabemvindo'

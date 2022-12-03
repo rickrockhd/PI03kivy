@@ -38,6 +38,11 @@ class TelaCadastroEmpresa(Screen):
 class TelaConfirmacaoCadastro(Screen):
     pass
 
+class TelaBemVindo(Screen):
+    pass
+class TelaProjetos(Screen):
+    pass
+
 class MyApp(MDApp):
 
     def build(self):
