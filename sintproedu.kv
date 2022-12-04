@@ -558,9 +558,60 @@ Gerenciadora:
                 MDScreen:
                     name: "scr 2"
 
-                    MDLabel:
-                        text: "Screen 2"
-                        halign: "center"
+                    FloatLayout:
+                        ScrollView:
+
+                            MDList:
+
+                                OneLineAvatarIconListItem:
+                                    on_release: print("Click!")
+
+                                    IconLeftWidget:
+                                        icon: "account-school"
+
+                                OneLineAvatarIconListItem:
+                                    on_release: print("Click 2!")
+
+                                    IconLeftWidget:
+                                        icon: "account-school"
+
+                                ThreeLineAvatarListItem:
+                                    on_release: print("Click 2!")
+
+                                    text: "Three-line item with avatar"
+                                    secondary_text: "Secondary text here"
+                                    tertiary_text: "fit more text than usual"
+
+                                    ImageLeftWidget:
+                                        icon: "account-school"
+                MDScreen:
+                    name: "scr 3"
+
+                    ScrollView:
+
+                        MDList:
+
+                            OneLineAvatarIconListItem:
+                                on_release: print("Click!")
+
+                                IconLeftWidget:
+                                    icon: "account-school"
+
+                            OneLineAvatarIconListItem:
+                                on_release: print("Click 2!")
+
+                                IconLeftWidget:
+                                    icon: "account-school"
+
+                            ThreeLineAvatarListItem:
+                                on_release: print("Click 2!")
+
+                                text: "João Silva Ferreira"
+                                secondary_text: "Engenharia da Computação"
+                                tertiary_text: "Conhecimento em Python e Ruby"
+
+                                ImageLeftWidget:
+                                    icon: "account-school"
 
             MDNavigationDrawer:
                 id: nav_drawer

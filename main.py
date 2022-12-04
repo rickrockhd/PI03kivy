@@ -12,7 +12,7 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.properties import ObjectProperty
 from kivymd.uix.boxlayout import MDBoxLayout
-
+from kivymd.uix.list import OneLineListItem
 class Gerenciadora(ScreenManager):
     pass
 
@@ -45,6 +45,12 @@ class ListaProjetos(Screen):
     pass
 
 class ListaEstudantes(Screen):
+    def on_start(self):
+        alunos = ["Fulano","Sicrano", "Beltrano" ]
+        for i in alunos:
+            self.root.ids.container.add_widget(
+                OneLineListItem(text=f"Nome: {i}")
+            )
     pass
 
 class ContentNavigationDrawer(MDBoxLayout):
@@ -59,6 +65,7 @@ class MyApp(MDApp):
         self.theme_cls.primary_palette = 'Cyan'
         self.theme_cls.theme_style = 'Dark'
         return Builder.load_file('sintproedu.kv')
+
 
     def fechar(self):
         self.stop()
