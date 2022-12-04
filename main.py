@@ -10,24 +10,22 @@ from kivymd.app import MDApp
 from kivymd.uix.card import MDCard
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.properties import ObjectProperty
+from kivymd.uix.boxlayout import MDBoxLayout
 
 class Gerenciadora(ScreenManager):
     pass
-
 
 class SenhaCard(MDCard):
     def fechar(self):
         self.parent.remove_widget(self)
 
-
 class TelaLogin(Screen):
     def abrir_card(self):
         self.add_widget(SenhaCard())
 
-
 class TelaCadastro(Screen):
     pass
-
 
 class TelaCadastroAluno(Screen):
     pass
@@ -42,6 +40,17 @@ class TelaBemVindo(Screen):
     pass
 class TelaProjetos(Screen):
     pass
+
+class ListaProjetos(Screen):
+    pass
+
+class ListaEstudantes(Screen):
+    pass
+
+class ContentNavigationDrawer(MDBoxLayout):
+    screen_manager = ObjectProperty()
+    nav_drawer = ObjectProperty()
+
 
 class MyApp(MDApp):
 

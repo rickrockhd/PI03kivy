@@ -6,6 +6,8 @@ Gerenciadora:
     TelaConfirmacaoCadastro:
     TelaBemVindo:
     TelaProjetos:
+    ListaProjetos:
+    ListaEstudantes:
 
 <TelaLogin>:
 
@@ -418,42 +420,6 @@ Gerenciadora:
             on_release: app.root.current = 'telalogin'
 
 
-<TelaBemVindo>:
-
-    name:"telabemvindo"
-
-    FloatLayout:
-        MDTopAppBar:
-            left_action_items: [['menu', lambda x: x]]
-            right_action_items: [['window-close', lambda x: app.fechar()]]
-            pos_hint: {'center_x': .5, 'center_y': 0.95}
-
-        Image:
-            source:'7.png'
-            size_hint: .99, .99
-            pos_hint: {'center_x': 0.5, 'center_y': 0.45}
-            allow_stretch: True
-
-        Image:
-            source:'logo_transparente.png'
-            size_hint: 0.8, 0.8
-            pos_hint: {'center_x': 0.5, 'center_y': 0.75}
-            allow_stretch: True
-
-        MDTextButton:
-            pos_hint:  { 'center_x': .50, 'center_y': .10}
-            text: 'Comece o seu projeto agora, clicando aqui!'
-            font_size: 15
-            on_release: app.root.current = 'telaprojetos'
-
-        MDIconButton:
-            icon: "reply"
-            pos_hint: {'center_x': .1, 'center_y': .05}
-            on_release: app.root.current = 'telalogin'
-
-
-
-
 <TelaProjetos>:
 
     name:"telaprojetos"
@@ -516,3 +482,91 @@ Gerenciadora:
             icon: "reply"
             pos_hint: {'center_x': .1, 'center_y': .05}
             on_release: app.root.current = 'telabemvindo'
+
+
+<ContentNavigationDrawer>
+
+    ScrollView:
+
+        MDList:
+
+            OneLineListItem:
+                text: "HOME"
+                on_press:
+                    root.nav_drawer.set_state("close")
+                    root.screen_manager.current = "home"
+
+            OneLineListItem:
+                text: "ALUNO"
+                on_press:
+                    root.nav_drawer.set_state("close")
+                    root.screen_manager.current = "scr 2"
+
+            OneLineListItem:
+                text: "EMPRESA"
+                on_press:
+                    root.nav_drawer.set_state("close")
+                    root.screen_manager.current = "scr 3"
+
+
+<TelaBemVindo>:
+
+    name:"telabemvindo"
+
+    MDScreen:
+
+        MDTopAppBar:
+            id: toolbar
+            pos_hint: {"top": 1}
+            elevation: 10
+            title: "Menu Principal"
+            left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+
+        MDNavigationLayout:
+            x: toolbar.height
+
+            MDScreenManager:
+                id: screen_manager
+
+                MDScreen:
+                    name: "home"
+
+                    MDLabel:
+                        text: "home"
+                        halign: "center"
+
+                    FloatLayout:
+                    
+                        Image:
+                            source:'7.png'
+                            size_hint: .99, .99
+                            pos_hint: {'center_x': 0.5, 'center_y': 0.45}
+                            allow_stretch: True
+
+                        Image:
+                            source:'logo_transparente.png'
+                            size_hint: 0.8, 0.8
+                            pos_hint: {'center_x': 0.5, 'center_y': 0.75}
+                            allow_stretch: True
+
+                        MDTextButton:
+                            pos_hint:  { 'center_x': .50, 'center_y': .10}
+                            text: 'Comece o seu projeto agora, clicando aqui!'
+                            font_size: 15
+                            on_release: app.root.current = 'telaprojetos'
+
+                MDScreen:
+                    name: "scr 2"
+
+                    MDLabel:
+                        text: "Screen 2"
+                        halign: "center"
+
+            MDNavigationDrawer:
+                id: nav_drawer
+
+                ContentNavigationDrawer:
+                    screen_manager: screen_manager
+                    nav_drawer: nav_drawer
+
+
